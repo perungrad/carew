@@ -11,6 +11,8 @@ class Document
     const TYPE_API     = 'api';
     const TYPE_UNKNOWN = 'unknown';
 
+    private $hasPerex = false;
+    private $perex = '';
     private $body;
     private $bodyDecorated;
     private $file;
@@ -69,6 +71,54 @@ class Document
         $this->body = $body;
 
         return $this;
+    }
+
+    /**
+     * @param boolean $hasPerex
+     *
+     * @return self
+     */
+    public function setHasPerex($hasPerex)
+    {
+        $this->hasPerex = $hasPerex;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getHasPerex()
+    {
+        return $this->hasPerex;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasPerex()
+    {
+        return $this->getHasPerex();
+    }
+
+    /**
+     * @param string $perex
+     *
+     * @return self
+     */
+    public function setPerex($perex)
+    {
+        $this->perex = $perex;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPerex()
+    {
+        return $this->perex;
     }
 
     public function getFile()

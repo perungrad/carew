@@ -37,6 +37,10 @@ class Markdown implements EventSubscriberInterface
         }
 
         $document->setBody($this->markdownParser->parse($document->getBody()));
+
+        if ($document->hasPerex()) {
+            $document->setPerex($this->markdownParser->parse($document->getPerex()));
+        }
     }
 
     public static function getSubscribedEvents()

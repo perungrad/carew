@@ -44,6 +44,15 @@ class Extraction implements EventSubscriberInterface
             }
 
             $document->addMetadatas($metadatas);
+
+            if ($document->hasPerex()) {
+                preg_match('#^(.+)\n+---\n(.+)$#sU', $body, $matches);
+                if ($matches) {
+                    list(, $perex, $body) = $matches;
+                    $document->setPerex($perex);
+                }
+            }
+
             $document->setBody($body);
         }
     }
